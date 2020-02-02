@@ -1,0 +1,28 @@
+{
+  "name": "reddit-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "testIt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MackRoe/reddit-clone.git"
+  },
+  "keywords": [
+    "node",
+    "handlebars",
+    "social",
+    "bew"
+  ],
+  "author": "MackRoe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MackRoe/reddit-clone/issues"
+  },
+  "homepage": "https://github.com/MackRoe/reddit-clone#readme",
+  "dependencies": {
+    "express-handlebars": "^3.1.0"
+  }
+}
