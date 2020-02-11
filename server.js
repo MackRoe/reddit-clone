@@ -51,3 +51,6 @@ app.get('/posts/new', (req, res) => res.render('posts-new'));
 app.get('/posts/index', (req, res) => res.render('posts-index'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+// export for testing
+module.exports = app;
