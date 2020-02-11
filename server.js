@@ -44,8 +44,10 @@ app.set('view engine','handlebars');
 app.use(express.static('public'));
 
 // Routes
-app.get('/', (req, res) => res.render('home'))
+// app.get('/', (req, res) => res.render('home'))
 
 app.get('/posts/new', (req, res) => res.render('posts-new'));
+
+app.get('/posts/index', (req, res) => res.render('posts-index'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
