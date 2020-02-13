@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Add after body parser initialization!
 app.use(expressValidator());
 
-require('./controllers/posts.js')(app);
+
 
 // Middleware
 const exphbs = require('express-handlebars');
@@ -49,6 +49,8 @@ app.use(express.static('public'));
 app.get('/posts/new', (req, res) => res.render('posts-new'));
 
 app.get('/posts/index', (req, res) => res.render('posts-index'));
+
+require('./controllers/posts.js')(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
