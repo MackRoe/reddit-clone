@@ -13,10 +13,7 @@ const mongoose = require("mongoose");
 
 
 mongoose.Promise = global.Promise;
-// mongoose.connect(
-//   url,
-//   {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
-// )
+
 mongoose.connect(
   "mongodb://localhost/reddit-db",
   { useNewUrlParser: true }
@@ -31,7 +28,7 @@ require('./data/reddit-db');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Add after body parser initialization!
+// correctly located after body parser initialization
 app.use(expressValidator());
 
 
@@ -44,13 +41,12 @@ app.set('view engine','handlebars');
 app.use(express.static('public'));
 
 // Routes
-// app.get('/', (req, res) => res.render('home'))
-
 app.get('/posts/new', (req, res) => res.render('posts-new'));
-
 app.get('/posts/index', (req, res) => res.render('posts-index'));
 
+// Controllers
 require('./controllers/posts.js')(app);
+require('./controllers/comments.js')(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
