@@ -1,10 +1,12 @@
 // Setup
+require('dotenv').config();
+let cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 const express = require('express')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-
 
 
 
@@ -14,9 +16,10 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
+
 mongoose.connect(
   "mongodb://localhost/reddit-db",
-  { useNewUrlParser: true }
+  {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
 mongoose.set("debug", true);
@@ -30,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // correctly located after body parser initialization
 app.use(expressValidator());
+
+// Use Cookie Parser - located after initialization of express
+app.use(cookieParser());
 
 
 
@@ -47,6 +53,7 @@ app.get('/posts/index', (req, res) => res.render('posts-index'));
 // Controllers
 require('./controllers/posts.js')(app);
 require('./controllers/comments.js')(app);
+require('./controllers/auth.js')(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
