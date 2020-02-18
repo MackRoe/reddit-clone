@@ -46,6 +46,20 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine','handlebars');
 app.use(express.static('public'));
 
+const checkAuth = (req, res, next) => {
+  console.log("Checking authentication");
+  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
+    req.user = null;
+  } else {
+    var token = req.cookies.nToken;
+    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    req.user = decodedToken.payload;
+  }
+
+  next();
+};
+app.use(checkAuth);
+
 // Routes
 app.get('/posts/new', (req, res) => res.render('posts-new'));
 app.get('/posts/index', (req, res) => res.render('posts-index'));

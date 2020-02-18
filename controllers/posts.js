@@ -4,6 +4,7 @@ module.exports = (app) => {
 
   // CREATE
   app.post('/posts/new', (req, res) => {
+      if(req.user){
     // INSTANTIATE INSTANCE OF POST MODEL
     const post = new Post(req.body);
 
@@ -13,14 +14,19 @@ module.exports = (app) => {
         console.log(post);
       // REDIRECT TO THE ROOT
       return res.redirect(`/`);
-    })
+        });
+    } else {
+        return res.status(401); // UNAUTHORIZED
+    }
   });
 
 // Index Route
 app.get('/', (req, res) => {
+    let currentUser = req.user;
+
     Post.find({})
       .then(posts => {
-        res.render("posts-index", { posts });
+        res.render("posts-index", { posts, currentUser });
     })
       .catch(err => {
         console.log(err.message);
@@ -29,6 +35,7 @@ app.get('/', (req, res) => {
 
 // post detail route
 app.get("/posts/:id", function(req, res) {
+    let currentUser = req.user;
   // LOOK UP THE POST
   Post.findById(req.params.id).populate('comments')
     .then(post => {
@@ -42,6 +49,7 @@ app.get("/posts/:id", function(req, res) {
 // SUBREDDIT
 // SUBREDDIT
 app.get("/n/:subreddit", function(req, res) {
+    let currentUser = req.user;
   Post.find({ subreddit: req.params.subreddit })
     .then(posts => {
       res.render("posts-index", { posts });
