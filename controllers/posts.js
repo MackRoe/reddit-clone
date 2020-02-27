@@ -39,7 +39,6 @@ app.get('/', (req, res) => {
     Post.find().populate('author') //.lean()
       .then(posts => {
           console.log('>>> got posts <<<')
-          console.log('posts: ' + posts)
           console.log('currentUser: ' + currentUser)
           res.render("posts-index", { posts, currentUser });
     })
