@@ -2,13 +2,14 @@
   <div class="col-sm-6 col-sm-offset-3">
     <a href="{{post.url}}" class="lead">{{post.title}}</a>
     <p>{{post.summary}}</p>
+    <p class="text-secondary">{{post.author.username}}</p>
     <hr>
-    <p class="text-warning"> comments for this post</p>
+    <h5 class="text-warning"> Comments</h5>
 
     {{#each post.comments}}
         <hr>
         <p>{{this.content}}</p>
-        <div><small>{{this.author}}</small></div>
+        <div><small>{{this.author.username}}</small></div>
     {{/each}}
 
     <form action="/posts/{{post._id}}/comments" method="post">

@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
       });
 })
 
-// post detail route
+// SHOW post detail route
 app.get("/posts/:id", function(req, res) {
     const currentUser = req.user;
   // LOOK UP THE POST
@@ -72,7 +72,7 @@ app.get("/posts/:id", function(req, res) {
 // SUBREDDIT
 app.get("/n/:subreddit", function (req, res) {
     const currentUser = req.user;
-  Post.find({ subreddit: req.params.subreddit })
+  Post.find({ subreddit: req.params.subreddit }).populate('author')
     .then(posts => {
       res.render("posts-index", { posts, currentUser });
     })
