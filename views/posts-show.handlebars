@@ -8,6 +8,7 @@
     {{#each post.comments}}
         <hr>
         <p>{{this.content}}</p>
+        <div><small>{{this.author}}</small></div>
     {{/each}}
 
     <form action="/posts/{{post._id}}/comments" method="post">

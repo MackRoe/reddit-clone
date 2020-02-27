@@ -5,7 +5,7 @@ assert = require("assert");
 const url = "mongodb://localhost/reddit-db";
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  "mongodb://localhost/reddit-db",
+  "mongodb://localhost:27017/reddit-db",
   { useNewUrlParser: true },
   function(err, db) {
     assert.equal(null, err);

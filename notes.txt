@@ -1,0 +1,10 @@
+INDEX method in posts controller:
+    ? console.log(req.cookies)
+- does this need the cookieParser imported ?
+
+ASSOCIATING THE AUTHOR OF COMMENTS AND POSTS section from pg8
+    "Now, can you do this same pattern for the comments controller when someone creates a comment?"
+    - actually no. pattern not understood.
+
+DISPLAYING THE AUTHOR: PRODUCT SO FAR section
+    does not display the author's name correctly

@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const User = require('../models/user'); // Credit to LucHighwalker/RedditClone
 
 module.exports = function(app) {
     // CREATE comment
@@ -16,13 +17,13 @@ module.exports = function(app) {
     })
     .then(post => {
       post.comments.unshift(comment);
-      return post.save();
+      return post.save();  // SAVES the COMMENT to the POST
     })
     .then(post => {
-      res.redirect(`/`);
+      res.redirect(`/posts/${post._id}`); // REDIRECTS to the POST DETAIL
     })
     .catch(err => {
-      console.log(err);
+      console.log(err); // Stops the JavaScript from quitting abruptly
     });
 });
   };

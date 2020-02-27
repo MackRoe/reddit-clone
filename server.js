@@ -1,6 +1,6 @@
 // Setup
 require('dotenv').config();
-let cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const express = require('express')
 const app = express()
@@ -50,14 +50,26 @@ const checkAuth = (req, res, next) => {
   console.log("Checking authentication");
   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
     req.user = null;
+    next();
   } else {
-    var token = req.cookies.nToken;
-    var decodedToken = jwt.decode(token, { complete: true }) || {};
-    req.user = decodedToken.payload;
+    const token = req.cookies.nToken;
+    jwt.verify(token, process.env.SECRET, (err, decodedToken) => {
+    if (err) {
+        console.log('Error in Auth; SIG')
+        req.user = null;
+    }   else {
+        req.user = decodedToken;
+    }
+    next();
+})
+    // var decodedToken = jwt.decode(token, { complete: true }) || {};
+    // req.user = decodedToken.payload;
   }
+// end of function
+  // next();
+}
 
-  next();
-};
+// Middleware
 app.use(checkAuth);
 
 // Routes
