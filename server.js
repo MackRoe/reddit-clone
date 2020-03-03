@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
@@ -12,15 +12,11 @@ const expressValidator = require('express-validator');
 
 /* Mongoose Connection */
 const mongoose = require("mongoose");
-
+const mongo_uri = process.env.MONGODB_URI
+mongoose.connect(mongo_uri)
 
 mongoose.Promise = global.Promise;
 
-
-mongoose.connect(
-  "mongodb://localhost/reddit-db",
-  {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
-);
 mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
 mongoose.set("debug", true);
 
@@ -80,6 +76,7 @@ app.get('/posts/index', (req, res) => res.render('posts-index'));
 require('./controllers/posts.js')(app);
 require('./controllers/comments.js')(app);
 require('./controllers/auth.js')(app);
+require('./controllers/replies.js')(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 

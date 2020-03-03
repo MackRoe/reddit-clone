@@ -7,9 +7,7 @@
     <h5 class="text-warning"> Comments</h5>
 
     {{#each post.comments}}
-        <hr>
-        <p>{{this.content}}</p>
-        <div><small>{{this.author.username}}</small></div>
+        {{> comment comment=this postId=../post._id}}
     {{/each}}
 
     <form action="/posts/{{post._id}}/comments" method="post">
