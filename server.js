@@ -10,15 +10,15 @@ const expressValidator = require('express-validator');
 
 
 
-/* Mongoose Connection */
-const mongoose = require("mongoose");
-const mongo_uri = process.env.MONGODB_URI
-mongoose.connect(mongo_uri)
+/* Mongoose Connection duplicated in reddit-db.js */
+// const mongoose = require("mongoose");
+// const mongo_uri = process.env.MONGODB_URI
+// mongoose.connect(mongo_uri)
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
-mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
-mongoose.set("debug", true);
+// mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
+// mongoose.set("debug", true);
 
 // Set db
 require('./data/reddit-db');

@@ -1,3 +1,9 @@
 Attempt to add comment to existing post, now producing an error that says:
 TypeError: Cannot read property '_id' of null
 ::: Occurs when no user is logged in :::  Should redirect to 404
+
+GREEN MESSAGE
+
+MongoDB is deployed and available as srv-captain--mongodb:27017 to other apps. For example with NodeJS: mongoose.connect('mongodb://srv-captain--mongodb/mydatabase?authSource=admin', {userMongoClient: true});
+
+44:45 https://zoom.us/rec/play/vMUrfrz6rT43GNSQuQSDBqN-W9W6LK-sgSMZqPUOmE23UyQAYVumY-QXZOD7-1N05JdlL--kMba0ll9c?continueMode=true&_x_zm_rtaid=CgOzpfZkQSqUHbQ5heuuSg.1594903293012.4c15494d761cc5bee7d9ca33abf35024&_x_zm_rhtaid=443

@@ -2,10 +2,14 @@
 const mongoose = require("mongoose");
 assert = require("assert");
 
-const url = "mongodb://localhost/reddit-db";
+const url = process.env.MONGODB_URI;
+// mongodb://mongo:27017/redditdb?authSource=admin
+// move to .env
+// http://srv-captain--mongodb
+// mongodb://srv-captain--mongodb:27017
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  "mongodb://localhost:27017/reddit-db",
+  url,
   { useNewUrlParser: true },
   function(err, db) {
     assert.equal(null, err);
