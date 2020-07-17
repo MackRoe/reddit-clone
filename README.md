@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/mackroe/reddit-clone.svg?branch=master)](https://travis-ci.com/mackroe/reddit-clone)
+[![Build Status](https://img.shields.io/travis/mackroe/reddit-clone?sort=date?style=plastic&logo=appveyore)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/mackroe/reddit-clone?sort=date?style=plastic&logo=appveyore)
 ![Docker Build Status](https://img.shields.io/docker/build/mackroe/reddit-clone?style=plastic&logo=appveyore)
 ![Top Language](https://img.shields.io/github/languages/top/mackroe/reddit-clone)
