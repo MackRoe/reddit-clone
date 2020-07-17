@@ -14,11 +14,12 @@ Deployed at [https://reddit-js-em.herokuapp.com](https://reddit-js-em.herokuapp.
 Dockerized version deployed at: coming soon
 
 ## To Run
-Clone the repo.
-In Terminal go to the working directory and run
-`docker-compose build`
-then run
+Clone the repo.<br>
+In Terminal go to the working directory and run:<br>
+`docker-compose build`<br>
+then run<br>
 `docker-compose up`
 
-To stop, run `docker-compose down`
+To stop, run:<br>
+ `docker-compose down`
 
