@@ -10,7 +10,7 @@
 
 A clone of the popular social media app, made with NodeJS, with permission. 
 
-Deployed at (https://reddit-js-em.herokuapp.com)[https://reddit-js-em.herokuapp.com]
+Deployed at [https://reddit-js-em.herokuapp.com](https://reddit-js-em.herokuapp.com)
 Dockerized version deployed at: coming soon
 
 ## To Run
