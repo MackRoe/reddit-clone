@@ -42,6 +42,9 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine','handlebars');
 app.use(express.static('public'));
 
+// Add to attempt remedy of 413 error - F
+// app.use(express.limit(100000000));
+
 const checkAuth = (req, res, next) => {
   console.log("Checking authentication");
   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
