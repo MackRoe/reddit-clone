@@ -13,7 +13,13 @@ A clone of the popular social media app, made with NodeJS, with permission.
 Deployed at [https://reddit-js-em.herokuapp.com](https://reddit-js-em.herokuapp.com)
 Dockerized version deployed at: coming soon
 
-## To Run
+## To Run Without Docker
+- Clone the repo
+- In terminal enter `npm start`
+- In browser, navigate to `localhost:3000`
+- Sign up to use
+
+## To Run Dockerized Version
 Clone the repo.<br>
 In Terminal go to the working directory and run:<br>
 `docker-compose build`<br>
