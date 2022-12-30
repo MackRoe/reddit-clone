@@ -38,6 +38,6 @@
   "devDependencies": {
     "chai-http": "^4.3.0",
     "handlebars": "^4.5.0",
-    "mocha": "^7.0.1"
+    "mocha": "^10.2.0"
   }
 }
